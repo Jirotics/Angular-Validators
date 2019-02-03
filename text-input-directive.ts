@@ -44,13 +44,4 @@ export class textInputDirective {
 		return this.rowData != null && this.field != null;
 	}
 
-	//TS: have to rig blur to make blurclick act as an enter keypress
-	blur(event: any) {
-		// sending enter keypress closes editable cell
-		const triggerEvent = document.createEvent('Event');
-		triggerEvent.initEvent('keydown', true, true);
-		(<any>triggerEvent).which = (<any>triggerEvent).keyCode = 13;
-		// send enter keydown event to input field (the target from the blur event)
-		event.target.dispatchEvent(triggerEvent);
-	}
 }
